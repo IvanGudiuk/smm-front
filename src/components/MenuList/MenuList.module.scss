@@ -1,0 +1,82 @@
+@import '../../variables.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(100% / 2);
+  text-transform: uppercase;
+
+  @media screen and (min-width: $tablet) {
+    width: calc(100% / 3);
+  }
+}
+
+.link {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 1px solid rgba($secondary-text-color, 0.2);
+  border-bottom: 1px solid rgba($secondary-text-color, 0.2);
+  transition: background-color 250ms ease-in-out;
+
+  &:hover {
+    background-color: rgba($accent-color, 0.2);
+  }
+
+  &.active {
+    border-right: 2px solid $accent-color;
+    border-bottom: 2px solid $accent-color;
+  }
+
+  @media screen and (min-width: $tablet) {
+    gap: 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    gap: 20px;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  & > img {
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: $tablet) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: $tablet) {
+    gap: 10px;
+  }
+}
+
+.icon {
+  & > img {
+    display: block;
+    width: 14px;
+    height: 14px;
+    color: $secondary-text-color;
+  }
+}

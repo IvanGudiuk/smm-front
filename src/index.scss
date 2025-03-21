@@ -21,16 +21,17 @@ body {
   height: 100%; /* Ensures full height of the viewport */
   margin: 0;
   padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #fffafa;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   overflow-y: auto; /* Change scroll behavior */
-  background-color: $bg-color;
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 h1,
@@ -85,14 +86,14 @@ input:focus {
   box-sizing: border-box;
   width: 100%;
   padding: 5px;
-  padding-top: 120px;
+  padding-top: 100px;
   margin-left: 5px;
   margin-right: 5px;
 
   @media screen and (min-width: $tablet) {
     width: 80%;
     padding: 10px;
-    padding-top: 130px;
+    padding-top: 100px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -100,20 +101,21 @@ input:focus {
   @media screen and (min-width: $desktop) {
     width: 60%;
     padding: 20px;
-    padding-top: 130px;
+    padding-top: 100px;
   }
 }
 
 .btn {
   width: fit-content;
   display: block;
-  padding: 10px;
+  padding: 15px;
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
   color: #fff;
-  background-color: $accent-color;
+  background: radial-gradient(circle at top left, #ffffff 0%, #000000 15%);
+  cursor: pointer;
   transition: transform 250ms ease-in-out;
   transform: scale(1);
 
@@ -124,11 +126,15 @@ input:focus {
 
 .field {
   display: block;
+  width: 100%;
+  font-weight: 700;
+  color: $secondary-text-color;
   background-color: #fff;
   padding: 15px;
+  margin-top: 15px;
   border-radius: 10px;
   outline: none;
-  border: 1px solid rgba($primary-text-color, 0.2);
+  border: 1px solid rgba($secondary-text-color, 1);
 
   &::placeholder {
     font-size: 12px;
@@ -138,4 +144,43 @@ input:focus {
   &:focus {
     box-shadow: 2px 2px 2px 2px rgba($primary-text-color, 0.2);
   }
+}
+
+.name {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#google_translate_element {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #fff; /* Задний фон */
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стилизация для выпадающего списка */
+.goog-te-combo {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Стилизация для кнопок Google Translate */
+.goog-te-gadget-icon {
+  display: none; /* Можно скрыть иконку, если нужно */
 }

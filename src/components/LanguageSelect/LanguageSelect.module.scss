@@ -1,0 +1,63 @@
+@import '../../variables.scss';
+
+.container {
+  position: relative;
+  margin-left: 20px;
+
+  &:hover .list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.select {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba($secondary-text-color, 0.2);
+  color: $secondary-text-color;
+  background-color: #fff;
+  cursor: pointer;
+
+  & > svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.list {
+  position: absolute;
+  top: 105%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: #fff;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: opacity 0.25s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 1px 1px 2px 2px rgba($primary-text-color, 0.2);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px;
+  border-bottom: 1px solid rgba($primary-text-color, 0.1);
+  color: $primary-text-color;
+
+  & > svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}

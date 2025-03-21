@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   register,
-  // login,
+  login,
   // logout,
   // verify,
   // restorePassword,
@@ -84,6 +84,20 @@ const authSlice = createSlice({
         state.email = action.payload.email;
       })
       .addCase(register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.message = action.payload;
+        state.status = 'error';
+      })
+      .addCase(login.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isLoggedIn = true;
+        state.lang = action.payload.lang;
+        state.balance = action.payload.balance;
+      })
+      .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.message = action.payload;
         state.status = 'error';

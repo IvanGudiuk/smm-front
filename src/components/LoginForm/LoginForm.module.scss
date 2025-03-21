@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.error {
+  font-size: 12px;
+  margin-top: 5px;
+  color: $error;
+}
+
+.field {
+  position: relative;
+}
+
+.pass {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  top: 50px;
+  right: 10px;
+
+  & > svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.link {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  text-decoration: underline;
+  margin-bottom: 30px;
+  color: $accent-color;
+  transition: color 250ms ease-in-out;
+
+  &:hover {
+    color: $secondary-text-color;
+  }
+}

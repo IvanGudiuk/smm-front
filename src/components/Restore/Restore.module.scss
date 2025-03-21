@@ -1,0 +1,71 @@
+@import "../../variables.scss";
+
+.container {
+  padding: 30px 0;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0;
+    width: 60%;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: $secondary-text-color;
+}
+
+.link {
+  font-size: 16px;
+  color: rgb(116, 116, 244);
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  transition: text-decoration 250ms ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.name {
+  position: relative;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 900;
+  padding-bottom: 30px;
+  color: $primary-text-color;
+}
+
+.error {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-weight: 400;
+  font-size: 11px;
+  color: $error;
+}
+
+.pass {
+  position: absolute;
+  right: 20px;
+  bottom: 38%;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}

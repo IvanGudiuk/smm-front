@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.foot {
+  padding: 20px;
+  width: 100%;
+  height: 200px;
+  background-color: $secondary-text-color;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+}
+
+.link {
+  width: 100%;
+  text-align: center;
+}

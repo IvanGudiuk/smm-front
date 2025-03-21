@@ -1,11 +1,11 @@
-import { api, setAuthHeader } from "api";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { api, setAuthHeader } from 'api';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const register = createAsyncThunk(
-  "auth/register",
+  'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await api.post("/users/register", credentials);
+      const { data } = await api.post('/users/register', credentials);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -14,12 +14,12 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  "auth/login",
+  'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const { email = "", password = "" } = credentials;
+      const { email = '', password = '' } = credentials;
 
-      const { data } = await api.post("/users/login", { email, password });
+      const { data } = await api.post('/users/login', { email, password });
       if (data.token) {
         setAuthHeader(data.token);
       }
@@ -31,7 +31,7 @@ export const login = createAsyncThunk(
 );
 
 export const verify = createAsyncThunk(
-  "auth/verify",
+  'auth/verify',
   async (credentials, thunkAPI) => {
     try {
       const { token } = credentials;
@@ -47,10 +47,10 @@ export const verify = createAsyncThunk(
 );
 
 export const resendVerify = createAsyncThunk(
-  "auth/resendVerify",
+  'auth/resendVerify',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await api.post("/users/verify/resend/", credentials);
+      const { data } = await api.post('/users/verify/resend/', credentials);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -59,10 +59,10 @@ export const resendVerify = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk(
-  "auth/logout",
+  'auth/logout',
   async (credentials, thunkAPI) => {
     try {
-      await api.post("/users/logout", credentials);
+      await api.post('/users/logout', credentials);
       setAuthHeader();
       localStorage.clear();
     } catch (error) {
@@ -72,7 +72,7 @@ export const logout = createAsyncThunk(
 );
 
 export const restorePassword = createAsyncThunk(
-  "auth/restorePassword",
+  'auth/restorePassword',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await api.post(`/users/restore`, credentials);
@@ -84,7 +84,7 @@ export const restorePassword = createAsyncThunk(
 );
 
 export const resetPassword = createAsyncThunk(
-  "auth/resetPassword",
+  'auth/resetPassword',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await api.post(`/users/password/reset`, credentials);
@@ -96,7 +96,7 @@ export const resetPassword = createAsyncThunk(
 );
 
 export const checkRestoreKey = createAsyncThunk(
-  "auth/checkRestoreKey",
+  'auth/checkRestoreKey',
   async (credentials, thunkAPI) => {
     try {
       const { restoreKey } = credentials;
@@ -109,7 +109,7 @@ export const checkRestoreKey = createAsyncThunk(
 );
 
 export const changeEmployees = createAsyncThunk(
-  "auth/changeEmployees",
+  'auth/changeEmployees',
   async (credentials, thunkAPI) => {
     try {
       const { id, employees } = credentials;
@@ -124,7 +124,7 @@ export const changeEmployees = createAsyncThunk(
 );
 
 export const getAllSpots = createAsyncThunk(
-  "auth/getAllSpots",
+  'auth/getAllSpots',
   async (_, thunkAPI) => {
     try {
       const { data } = await api.get(`/spots`);
@@ -136,7 +136,7 @@ export const getAllSpots = createAsyncThunk(
 );
 
 export const getAllEmployees = createAsyncThunk(
-  "auth/getAllEmployees",
+  'auth/getAllEmployees',
   async (_, thunkAPI) => {
     try {
       const { data } = await api.get(`/employees`);
@@ -148,73 +148,11 @@ export const getAllEmployees = createAsyncThunk(
 );
 
 export const refreshToken = createAsyncThunk(
-  "auth/refreshToken",
+  'auth/refreshToken',
   async (credentials, thunkAPI) => {
     try {
       const { id } = credentials;
       const { data } = await api.patch(`/spots/${id}/refresh`);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const deleteEmployee = createAsyncThunk(
-  "auth/deleteEmployee",
-  async (credentials, thunkAPI) => {
-    try {
-      const { id } = credentials;
-      const { data } = await api.delete(`/employees/${id}`);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const newEmployee = createAsyncThunk(
-  "auth/newEmployee",
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await api.post(`/employees/new`, credentials);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const newSpot = createAsyncThunk(
-  "actions/newSpot",
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await api.post("/spots/new", credentials);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const deleteSpot = createAsyncThunk(
-  "auth/deleteSpot",
-  async (credentials, thunkAPI) => {
-    try {
-      const { id } = credentials;
-      const { data } = await api.delete(`/spots/${id}`);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
-    }
-  }
-);
-
-export const getPayment = createAsyncThunk(
-  "auth/getPayment",
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await api.post("/users/payment", credentials);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);

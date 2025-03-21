@@ -1,0 +1,16 @@
+@import '../variables.scss';
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.text {
+  padding: 10px;
+  line-height: 1.5;
+  font-size: 16px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+  }
+}
